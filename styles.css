@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url(images/background.jpg);
+    background-repeat: repeat;
+    background-size: 100% 100%;
+}
+
+.content{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+    width: 100%;
+}
+
+.bodyContainer{
+    margin: 20px 0;
+    padding: 8px;
+    height: 500px;
+    width: 500px;
+    min-width: 250px;
+    background-color: orangered;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 25px;
+    
+}
+
+.gridSizeLabel{
+    font-weight: 700;
+}
+
+#gridControl{
+    width: 500px;
+}
+
+#gridSizeSubmit{
+    box-shadow: 0;
+    background: none;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    flex-shrink: 1;
+    width: 400px;
+    height: calc(width);
+    min-height: 200px;
+    min-width: 200px;
+    box-sizing: content-box;
+    border: 5px solid black;
+}
+
+.container2{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+
+.cell{
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid;
+}
+
+.grid.cell.clicked{
+    background-color: black;
+}
+
+#controls{
+    display: flex;
+    flex-flow: column wrap;
+    width: 300px;
+    height: 400px;
+    justify-content: space-between;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 25px;
+    background-color:darkgray;
+    margin-top: 20px;
+}
+
+h2{
+    margin: 20px 0;
+    text-align: center;
+}
+
+#colorForm{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px inset;
+}
+
+#eraser, #reset{
+    box-shadow: 0;
+    background: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: whitesmoke;
+}
+
+#eraser.active{
+    border-color: greenyellow;
+}
+
+#reset:active{
+    border-color: greenyellow;
+}
+
+#reset{
+    margin-bottom: 100px;
+}
