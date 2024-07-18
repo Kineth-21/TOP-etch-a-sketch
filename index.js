@@ -21,12 +21,11 @@ function newGrid(num) {
             div2.classList.add("grid");
             div.appendChild(div2);
 
-            // Add event listeners for mouse interactions
+            // Add event listeners for both mouse and touch interactions
             div2.addEventListener("mousedown", handleStart);
             div2.addEventListener("mouseenter", handleMove);
             div2.addEventListener("mouseup", handleEnd);
 
-            // Add touch event listeners
             div2.addEventListener("touchstart", handleStart);
             div2.addEventListener("touchmove", handleMove);
             div2.addEventListener("touchend", handleEnd);
@@ -44,28 +43,29 @@ function newGrid(num) {
     });
 }
 
-function handleStart() {
+function handleStart(event) {
+    event.preventDefault(); // Prevent default for both touch and mouse
     isPointerDown = true;
-    if (isEraserOn && isPointerDown) {
-        this.style.backgroundColor = "white"; // Set background color to white if eraser is on
-    } else if (!isEraserOn && isPointerDown) {
-        this.style.backgroundColor = currentColor; // Set background color to current color if eraser is off
-    }
+    paintCell(this); // Paint the cell on start
 }
 
 function handleMove(event) {
-    event.preventDefault(); // Prevent default touch move behavior
+    event.preventDefault(); // Prevent default for both touch and mouse
     if (isPointerDown) {
-        if (isEraserOn) {
-            this.style.backgroundColor = "white"; // Set background color to white if eraser is on and dragging
-        } else {
-            this.style.backgroundColor = currentColor; // Set background color to current color if eraser is off and dragging
-        }
+        paintCell(this); // Paint the cell while moving
     }
 }
 
 function handleEnd() {
     isPointerDown = false;
+}
+
+function paintCell(cell) {
+    if (isEraserOn) {
+        cell.style.backgroundColor = "white"; // Set background color to white if eraser is on
+    } else {
+        cell.style.backgroundColor = currentColor; // Set background color to current color if eraser is off
+    }
 }
 
 newGrid(16);
